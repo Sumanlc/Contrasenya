@@ -84,7 +84,13 @@ class PasswordVerifyTest {
 
     @Test
     public void test7(){
+        String password = "holA!";
+        PasswordVerify verifier = new PasswordVerify();
+        ValidationResult result = verifier.verifyPassword(password);
 
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de tenir almenys 8 caràcters\n" +
+                "La contrasenya ha de contenir almenys 2 números\n" , result.getErrorMessage());
     }
 
     @Test

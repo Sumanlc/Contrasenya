@@ -117,6 +117,13 @@ class PasswordVerifyTest {
 
     @Test
     public void test10(){
+        String password = "holacaracola12";
+        PasswordVerify verifier = new PasswordVerify();
+        ValidationResult result = verifier.verifyPassword(password);
+
+        assertFalse(result.isValid());
+        assertEquals("La contrasenya ha de contenir almenys una lletra majúscula\n" +
+                "La contrasenya ha de contenir almenys un caràcter especial\n", result.getErrorMessage());
 
     }
 
